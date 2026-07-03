@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Model weights (distributed via GitHub Releases, see README)
+*.pth
+*.pt
+
+# Environments
+.venv/
+venv/
+.conda/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local outputs
+outputs/
+*.log

@@ -1,0 +1,56 @@
+{
+  "project": "NAFNet-Alpha: Controllable Smartphone Image Denoising",
+  "student": "Barbod Borhani",
+  "student_id": "2358711",
+  "department": "Artificial Intelligence",
+  "university": "Bahcesehir University",
+  "course": "AIN3002 Deep Learning",
+  "supervisor": "Dr. Arezoo Sadeghzadeh",
+
+  "final_checkpoint": "EXPB_FINAL_a0_42.60.pth",
+  "architecture": "NAFNetAlpha",
+  "parameters": 20379939,
+  "width": 32,
+
+  "alpha_scale_formula": "1.0 - 0.8 * alpha",
+
+  "training": {
+    "dataset": "SIDD",
+    "train_patches": 30000,
+    "val_patches": 1000,
+    "patch_size": 256,
+    "batch_size": 8,
+    "loss": "L1 + 0.01*FFT + 1.0*teacher_preservation"
+  },
+
+  "experiment_A": {
+    "alpha_cap": 0.30,
+    "lr": 0.00002,
+    "epochs": 5,
+    "result_alpha0": 42.58,
+    "result_alpha05": 40.46,
+    "result_alpha1": 37.13,
+    "spread": 5.45,
+    "note": "Stable but alpha effect visually too subtle"
+  },
+
+  "experiment_B": {
+    "alpha_cap": 0.45,
+    "lr": 0.00001,
+    "epochs": 3,
+    "optimizer": "fresh AdamW",
+    "w_keep": 1.0,
+    "result_alpha0": 42.60,
+    "result_alpha05": 38.85,
+    "result_alpha1": 34.64,
+    "spread": 7.96,
+    "note": "Selected as final model — clear visual alpha progression"
+  },
+
+  "output_modes": {
+    "clean":   {"alpha": 0.0,  "description": "Maximum denoising"},
+    "natural": {"alpha": 0.2,  "description": "Balanced output, recommended default"},
+    "vivid":   {"alpha": 0.2,  "description": "Natural with slight color boost"},
+    "grain":   {"alpha": 0.5,  "description": "Moderate grain retention"}
+  }
+}

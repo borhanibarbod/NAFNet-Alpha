@@ -1,0 +1,17 @@
+# Core (inference)
+torch>=2.0
+numpy
+Pillow
+
+# Notebook / visualization
+matplotlib
+tqdm
+
+# Comparison script (scripts/compare_all_models.py)
+scikit-image
+scipy
+pandas
+requests
+
+# Optional: classical BM3D baseline for the comparison script
+# bm3d
